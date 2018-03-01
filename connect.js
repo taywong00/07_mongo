@@ -2,6 +2,7 @@ var lastX;
 var lastY;
 
 var pic = document.getElementById('vimage');
+var clearButton = document.getElementById('clear');
 
 var drawDot = function(e) {
   var dot = document.createElementNS(
@@ -52,4 +53,13 @@ var draw = function(e) {
   console.log('drawing!');
 }
 
+var clear = function(e) {
+  while (pic.lastChild) {
+    pic.removeChild(pic.lastChild);
+  }
+  lastX = null;
+  lastY = null;
+}
+
 pic.addEventListener('click', draw);
+clearButton.addEventListener('click', clear);
